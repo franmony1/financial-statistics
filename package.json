@@ -1,6 +1,6 @@
 {
   "name": "financial-statistics",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of utilities for financial statistics and decentralized finance (DeFi) applications",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,10 @@
   "author": "franmony1",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "d3-scale": "^3.3.0",
+    "mathjs": "^11.6.0",
+    "node-fetch": "^2.6.1",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "jest": "^26.6.3"

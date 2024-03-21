@@ -1,3 +1,6 @@
+const math = require('mathjs');
+const { scaleLinear } = require('d3-scale');
+
 /**
  * Calculates the average of an array of numbers
  * @param {number[]} data 
@@ -78,10 +81,46 @@ const calculateCorrelationCoefficient = (dataX, dataY) => {
   return numerator / (denomX * denomY);
 };
 
+/**
+ * Calculates the determinant of a matrix
+ * @param {Array<Array<number>>} matrix Matrix
+ * @returns {number} Determinant value
+ */
+const calculateDeterminant = (matrix) => {
+  return math.det(matrix);
+};
+
+/**
+ * Calculates the derivative of a function at a point
+ * @param {Function} fn Function
+ * @param {number} x Point
+ * @returns {number} Derivative value
+ */
+const calculateDerivative = (fn, x) => {
+  return math.derivative(fn, x);
+};
+
+/**
+ * Linearly scales data
+ * @param {number[]} data Original data
+ * @param {number} minRange Minimum range of output
+ * @param {number} maxRange Maximum range of output
+ * @returns {number[]} Scaled data
+ */
+const linearScaleData = (data, minRange, maxRange) => {
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const scale = scaleLinear().domain([min, max]).range([minRange, maxRange]);
+  return data.map(scale);
+};
+
 module.exports = {
   calculateAverage,
   calculateMedian,
   calculateStandardDeviation,
   calculateVariance,
   calculateCorrelationCoefficient,
+  calculateDeterminant,
+  calculateDerivative,
+  linearScaleData,
 };
